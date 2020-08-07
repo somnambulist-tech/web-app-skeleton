@@ -18,18 +18,10 @@
 # SF 4.2+ uses .env.*.local to override the .env
 /*user.ini
 /*tideways.ini
-.docker-sync
 /public/assets/
 /bin/*
 !/bin/console
 !/bin/dc-*
-/tests/_output
-/tests/output
-.ppm
-*.ppm.json
-ppm.*.json
-!ppm.dist.json
-ppm.json
 
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
@@ -102,3 +94,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# PhpStorm 2020.2+ now stores hardcoded paths in the CLI tool config
+/.idea/commandlinetools/Symfony*.xml

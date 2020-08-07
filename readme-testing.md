@@ -10,7 +10,7 @@ The following helpers are available by default in the `tests/Support` folder:
 
  * BootKernel - auto-boot the `App\Kernel` on test setUp
  * BootTestClient - auto-boot the test Client service on test setUp (use instead of BootKernel)
- * DoctrineHelper - accessors for getting Doctrine EntityManager or a configured EntityLocator
+ * CanRecordApiResponses - enable API recording if using somnambulist/api-client and SF HttpClient
  * GenerateRouteTo - use named routes conveniently in tests
  * MakeJsonRequestTo - wrap SF Client to make a JSON request to a resource (requires `BootTestClient`)
  * UseObjectFactoryHelper - wrapper around faker to provide test objects

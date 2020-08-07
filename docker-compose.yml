@@ -1,22 +1,36 @@
 version: '3.5'
 
 services:
-  app:
+  app-server:
     build:
       context: .
       dockerfile: src/Resources/docker/dev/app/Dockerfile
     networks:
       - app_network_backend
-    labels:
-      traefik.port: 8080
-      traefik.frontend.rule: "Host:app.example.dev"
 
-  app-redis:
+  app-cache:
     image: redis:alpine
     networks:
       - app_network_backend
+
+  app-sessions:
+    image: redis:alpine
+    networks:
+      - app_network_backend
+
+  app-web:
+    build:
+      context: .
+      dockerfile: src/Resources/docker/dev/web/Dockerfile
+    depends_on:
+      - app
+    networks:
+      - app_network_backend
     labels:
-      traefik.enable: "false"
+      traefik.enable: true
+      traefik.http.routers.app-web.rule: "Host(`app.example.dev`)"
+      traefik.http.routers.app-web.tls: true
+      traefik.http.services.app-web.loadbalancer.server.port: 8080
 
 networks:
   app_network_backend:

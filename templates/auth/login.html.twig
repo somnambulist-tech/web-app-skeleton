@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block body %}
+
+    <form action="{{ path('auth.login') }}" method="post" class="form-signin">
+        {% if error %}
+            <div class="alert alert-danger mb-3">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+
+        <h1>Log In</h1>
+
+        <label for="inputEmail">Email address</label>
+        <input type="email" placeholder="Username" id="auth-login-username" name="_username" required value="{{ last_username }}">
+
+        <label for="inputPassword">Password</label>
+        <input type="password" placeholder="Password" id="auth-login-password" name="_password" required autocomplete="false">
+
+        <button type="submit">Log In</button>
+    </form>
+
+{% endblock %}

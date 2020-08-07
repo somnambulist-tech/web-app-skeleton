@@ -10,6 +10,6 @@ somnambulist_api:
         limit: 100
         request_id_header: 'X-Request-Id'
     subscribers:
-        exception_to_json: true
+        exception_to_json: false
         json_to_post: true
         request_id: true

@@ -2,8 +2,6 @@
 
 namespace App\Resources;
 
-use Somnambulist\Domain\Doctrine\Bootstrapper;
-use Somnambulist\ReadModels\Model;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -22,9 +20,6 @@ class ResourcesBundle extends Bundle
      */
     private static $booted = false;
 
-    /**
-     * @param ContainerBuilder $container
-     */
     public function build(ContainerBuilder $container)
     {
 
@@ -40,19 +35,6 @@ class ResourcesBundle extends Bundle
             Request::HEADER_X_FORWARDED_ALL
         );
 
-        $this->registerDoctrineTypesAndEnumerations();
-
-        if (false === static::$booted) {
-            Model::bindConnection($this->container->get('doctrine.dbal.default_connection'));
-        }
-
         static::$booted = true;
-    }
-
-    private function registerDoctrineTypesAndEnumerations()
-    {
-        Bootstrapper::registerEnumerations();
-        Bootstrapper::registerTypes();
-        Bootstrapper::registerExtendedTypes();
     }
 }

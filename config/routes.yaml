@@ -1,5 +1,14 @@
 
-api.index:
+auth.login:
+    path: /auth/login
+    controller: App\Auth\Delivery\App\Controllers\LoginController
+    methods: POST|GET
+
+auth.logout:
+    path: /auth/logout
+    methods: POST|GET
+
+index:
     path: /
-    controller: 'App\Delivery\Api\IndexController'
-    methods: [GET]
+    controller: App\Component\Delivery\App\Controllers\IndexController
+    methods: GET

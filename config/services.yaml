@@ -33,36 +33,58 @@ services:
             $allowInlineLineBreaks:      true
             $ignoreEmptyContextAndExtra: true
 
-
-
     #
-    # App Services that need container resolution
+    # Auth Component Services
     #
 
-    App\Delivery\Api\:
-        resource: '../src/Delivery/Api'
+    App\Auth\Delivery\App\Controllers\:
+        resource: '../src/Auth/Delivery/App/Controllers'
         tags: ['controller.service_arguments']
 
-    App\Delivery\Console\:
-        resource: '../src/Delivery/Console'
+    App\Auth\Delivery\Console\:
+        resource: '../src/Auth/Delivery/Console'
         tags: ['console.command']
 
-    App\Domain\Services\:
-        resource: '../src/Domain/Services'
+    App\Auth\Domain\Services\:
+        resource: '../src/Auth/Domain/Services'
         public: true
 
-    App\Application\CommandHandlers\:
-        resource: '../src/Application/CommandHandlers/*'
+    App\Auth\Application\CommandHandlers\:
+        resource: '../src/Auth/Application/CommandHandlers'
         tags: [{ name: messenger.message_handler, bus: command.bus }]
 
-    App\Application\QueryHandlers\:
-        resource: '../src/Application/QueryHandlers/*'
+    App\Auth\Infrastructure\Services\:
+        resource: '../src/Auth/Infrastructure/Services'
+
+
+    #
+    # Component Services - duplicate for each new component
+    #
+    # Consider moving into separate files for each component
+    #
+
+    app.component.controllers:
+        namespace: App\Component\Delivery\App\
+        resource: '../src/Component/Delivery/App/*/Controllers'
+        tags: ['controller.service_arguments']
+
+    app.component.forms:
+        namespace: App\Component\Delivery\App\
+        resource: '../src/Component/Delivery/App/*/Forms'
+        tags: ['form.type']
+
+    App\Component\Delivery\Console\:
+        resource: '../src/Component/Delivery/Console'
+        tags: ['console.command']
+
+    App\Component\Domain\Services\:
+        resource: '../src/Component/Domain/Services'
+        public: true
+
+    App\Component\Application\CommandHandlers\:
+        resource: '../src/Component/Application/CommandHandlers/*'
+        tags: [{ name: messenger.message_handler, bus: command.bus }]
+
+    App\Component\Application\QueryHandlers\:
+        resource: '../src/Component/Application/QueryHandlers/*'
         tags: [{ name: messenger.message_handler, bus: query.bus }]
-
-    App\Infrastructure\Persistence\Repositories\:
-        resource: '../src/Infrastructure/Persistence/Repositories/*'
-
-    # Add repository interface mappings here to provide an implementation for a repository
-    #App\Domain\Services\Repositories\MyModelRepository:
-    #    alias:  App\Infrastructure\Persistence\Repositories\MyModelRepository
-    #    public: true

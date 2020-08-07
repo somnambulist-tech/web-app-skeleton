@@ -1,0 +1,32 @@
+security:
+    encoders:
+        App\Auth\Domain\Models\SecurityUser:
+            algorithm: bcrypt
+            cost: 14
+
+    providers:
+        security_users:
+            id: App\Auth\Infrastructure\Services\SecurityUserProvider
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            user_checker: App\Auth\Infrastructure\Services\SecurityUserChecker
+            form_login:
+                csrf_token_generator: security.csrf.token_manager
+                login_path: auth.login
+                check_path: auth.login
+            logout:
+                path:   auth.logout
+                target: auth.login
+            switch_user: { role: ROLE_SWITCH_USER }
+
+    access_control:
+        - { path: ^/auth/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/auth/lost_password, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/auth/reset_password/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

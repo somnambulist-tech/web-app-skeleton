@@ -2,6 +2,7 @@
 parameters:
 
 services:
-    App\Resources\Fixtures\:
-        resource: '../src/Resources/Fixtures'
-        tags: ['doctrine.fixture.orm']
+    _defaults:
+        autoconfigure: true
+        autowire:      true
+        public:        true

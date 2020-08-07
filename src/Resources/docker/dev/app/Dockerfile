@@ -1,35 +1,40 @@
 
-FROM somnambulist/php-ppm:7.4-latest
+FROM somnambulist/php-fpm:7.4-latest
 ENV TERM=xterm-256color
+ENV XDEBUG=${XDEBUG:-false}
 
 RUN apk --update add ca-certificates \
     && apk update \
     && apk upgrade \
     && apk --no-cache add -U \
-    php7-pdo_pgsql \
-    php7-pgsql \
     php7-pecl-amqp \
+    php7-pecl-xdebug \
+    php7-gd \
     && rm -rf /var/cache/apk/* /tmp/*
-
-# setup custom PHP ini files
-COPY src/Resources/docker/dev/app/conf.d/zz-custom.ini *user.ini /etc/php7/conf.d/
 
 # app will be mounted here, so set this as our working directory
 WORKDIR /app
 
+# copy the php config / overrides, using zz- so it is loaded last
+COPY src/Resources/docker/dev/app/conf.d/php-fpm.conf /etc/php7/php-fpm.conf
+COPY src/Resources/docker/dev/app/conf.d/www.conf /etc/php7/php-fpm.d/www.conf
+COPY src/Resources/docker/dev/app/conf.d/zz-custom.ini /etc/php7/conf.d/zz-custom.ini
 COPY src/Resources/docker/dev/app/docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod 755 /docker-entrypoint.sh
 
-COPY ppm*.json ./
+# dump xdebug into tmp, docker-entrypoint will enable if env var set
+COPY src/Resources/docker/dev/app/conf.d/xdebug.ini /tmp/xdebug.ini
+
 COPY composer.* ./
 COPY .env* ./
 
-RUN composer install --no-suggest --no-scripts --quiet \
-    && rm -rf /tmp/*
+RUN chmod 755 /docker-entrypoint.sh
+RUN composer install --no-suggest --no-scripts --quiet && rm -rf /tmp/*
 
+# copy all the files to the /app folder, use with a .dockerignore
 COPY . .
 
-EXPOSE 8080
+# this should be the same port as defined in the fpm.conf
+EXPOSE 9000
+EXPOSE 9005
 
-# run php-pm on the custom ip so it is externally available
-CMD [ "/docker-entrypoint.sh", "start", "--workers=2", "--cgi-path=/usr/bin/php-cgi", "--host=0.0.0.0" ]
+CMD [ "/docker-entrypoint.sh" ]
