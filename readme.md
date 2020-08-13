@@ -86,7 +86,7 @@ and by the `bin/dc-*` scripts.
 
 #### DNS Resolution
 
-DNS and Proxy where moved to [data service](https://github.com/somnambulist-tech/data-service-skeleton).
+See [data service](https://github.com/somnambulist-tech/data-service-skeleton) for DNS / Proxy info.
 
 ## Suggested Implementation Approach
 
