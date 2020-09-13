@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: src/Resources/docker/test/app/Dockerfile
+      dockerfile: config/docker/test/app/Dockerfile
     depends_on:
       - postgres
     networks:
@@ -25,7 +25,7 @@ services:
   app-web:
     build:
       context: .
-      dockerfile: src/Resources/docker/test/web/Dockerfile
+      dockerfile: config/docker/test/web/Dockerfile
     depends_on:
       - app
     networks:

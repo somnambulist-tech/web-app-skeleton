@@ -4,7 +4,7 @@ services:
   app-server:
     build:
       context: .
-      dockerfile: src/Resources/docker/dev/app/Dockerfile
+      dockerfile: config/docker/dev/app/Dockerfile
     networks:
       - app_network_backend
 
@@ -21,9 +21,9 @@ services:
   app-web:
     build:
       context: .
-      dockerfile: src/Resources/docker/dev/web/Dockerfile
+      dockerfile: config/docker/dev/web/Dockerfile
     depends_on:
-      - app
+      - app-server
     networks:
       - app_network_backend
     labels:

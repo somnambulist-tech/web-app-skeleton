@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32a3ef6eaec733055c982cfdb45299ed",
+    "content-hash": "703a3023a7bc6f4094ee3bce04ac1e90",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -654,6 +654,94 @@
             "time": "2020-07-13T19:23:57+00:00"
         },
         {
+            "name": "pagerfanta/pagerfanta",
+            "version": "v2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BabDev/Pagerfanta.git",
+                "reference": "cf8f456c5fd691932ac6da0b6df6341c6c9bcc22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BabDev/Pagerfanta/zipball/cf8f456c5fd691932ac6da0b6df6341c6c9bcc22",
+                "reference": "cf8f456c5fd691932ac6da0b6df6341c6c9bcc22",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2",
+                "symfony/deprecation-contracts": "^2.1"
+            },
+            "conflict": {
+                "twig/twig": "<1.35 || >=2.0,<2.5"
+            },
+            "replace": {
+                "pagerfanta/core": "self.version",
+                "pagerfanta/doctrine-collections-adapter": "self.version",
+                "pagerfanta/doctrine-dbal-adapter": "self.version",
+                "pagerfanta/doctrine-mongodb-odm-adapter": "self.version",
+                "pagerfanta/doctrine-orm-adapter": "self.version",
+                "pagerfanta/doctrine-phpcr-odm-adapter": "self.version",
+                "pagerfanta/elastica-adapter": "self.version",
+                "pagerfanta/solarium-adapter": "self.version",
+                "pagerfanta/twig": "self.version"
+            },
+            "require-dev": {
+                "doctrine/collections": "^1.4",
+                "doctrine/dbal": "^2.5",
+                "doctrine/orm": "^2.5",
+                "doctrine/phpcr-odm": "^1.3",
+                "friendsofphp/php-cs-fixer": "^2.16.3",
+                "jackalope/jackalope-doctrine-dbal": "^1.3",
+                "mandango/mandango": "^1.0@dev",
+                "phpstan/extension-installer": "^1.0.4",
+                "phpstan/phpstan": "^0.12.33",
+                "phpstan/phpstan-phpunit": "^0.12.12",
+                "phpunit/phpunit": "^8.5 || ^9.0",
+                "propel/propel": "^2.0@dev",
+                "propel/propel1": "^1.7",
+                "ruflin/elastica": "^1.3 || ^2.0 || ^3.0 || ^5.0 || ^6.0 || ^7.0",
+                "solarium/solarium": "^2.3 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
+                "twig/twig": "^1.35 || ^2.5 || ^3.0"
+            },
+            "suggest": {
+                "twig/twig": "To integrate Pagerfanta with Twig"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pagerfanta\\": "lib/Core/",
+                    "Pagerfanta\\Adapter\\": "src/Adapter/",
+                    "Pagerfanta\\Doctrine\\Collections\\": "lib/Adapter/Doctrine/Collections/",
+                    "Pagerfanta\\Doctrine\\DBAL\\": "lib/Adapter/Doctrine/DBAL/",
+                    "Pagerfanta\\Doctrine\\MongoDBODM\\": "lib/Adapter/Doctrine/MongoDBODM/",
+                    "Pagerfanta\\Doctrine\\ORM\\": "lib/Adapter/Doctrine/ORM/",
+                    "Pagerfanta\\Doctrine\\PHPCRODM\\": "lib/Adapter/Doctrine/PHPCRODM/",
+                    "Pagerfanta\\Elastica\\": "lib/Adapter/Elastica/",
+                    "Pagerfanta\\Solarium\\": "lib/Adapter/Solarium/",
+                    "Pagerfanta\\Twig\\": "lib/Twig/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Pagination for PHP",
+            "keywords": [
+                "page",
+                "pagination",
+                "paginator",
+                "paging"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/mbabker",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-08-03T23:54:27+00:00"
+        },
+        {
             "name": "pragmarx/ia-str",
             "version": "v7.3.0",
             "source": {
@@ -916,16 +1004,16 @@
         },
         {
             "name": "ramsey/collection",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/collection.git",
-                "reference": "044184884e3c803e4cbb6451386cb71562939b18"
+                "reference": "24d93aefb2cd786b7edd9f45b554aea20b28b9b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/collection/zipball/044184884e3c803e4cbb6451386cb71562939b18",
-                "reference": "044184884e3c803e4cbb6451386cb71562939b18",
+                "url": "https://api.github.com/repos/ramsey/collection/zipball/24d93aefb2cd786b7edd9f45b554aea20b28b9b1",
+                "reference": "24d93aefb2cd786b7edd9f45b554aea20b28b9b1",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +1069,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-11T00:57:21+00:00"
+            "time": "2020-09-10T20:58:17+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -1072,16 +1160,16 @@
         },
         {
             "name": "samj/fractal-bundle",
-            "version": "3.0.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samjarrett/FractalBundle.git",
-                "reference": "c6bafa896981e80ae9f564ff6acc3def577911a4"
+                "reference": "bf2c3f58f921fc26fcbd52c5d56d963a608de3bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samjarrett/FractalBundle/zipball/c6bafa896981e80ae9f564ff6acc3def577911a4",
-                "reference": "c6bafa896981e80ae9f564ff6acc3def577911a4",
+                "url": "https://api.github.com/repos/samjarrett/FractalBundle/zipball/bf2c3f58f921fc26fcbd52c5d56d963a608de3bc",
+                "reference": "bf2c3f58f921fc26fcbd52c5d56d963a608de3bc",
                 "shasum": ""
             },
             "require": {
@@ -1090,7 +1178,6 @@
                 "symfony/framework-bundle": "^3.0|^4.0|^5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.0",
                 "symfony/yaml": "^4.0|^5.0"
             },
             "type": "library",
@@ -1104,7 +1191,7 @@
                 "MIT"
             ],
             "description": "A Symfony Bundle for Fractal by League. Implements dependency injection into your transformers",
-            "time": "2020-02-06T11:31:56+00:00"
+            "time": "2020-06-19T12:31:07+00:00"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -1156,32 +1243,34 @@
         },
         {
             "name": "somnambulist/api-bundle",
-            "version": "1.7.5",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/somnambulist-tech/api-bundle.git",
-                "reference": "8eb70f34a0d25b09c9c8208b2d64771d02fe47f9"
+                "reference": "8bbaf1adf6a1f7cc8dd74185c3fd4032324c9439"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/somnambulist-tech/api-bundle/zipball/8eb70f34a0d25b09c9c8208b2d64771d02fe47f9",
-                "reference": "8eb70f34a0d25b09c9c8208b2d64771d02fe47f9",
+                "url": "https://api.github.com/repos/somnambulist-tech/api-bundle/zipball/8bbaf1adf6a1f7cc8dd74185c3fd4032324c9439",
+                "reference": "8bbaf1adf6a1f7cc8dd74185c3fd4032324c9439",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=7.2",
-                "samj/fractal-bundle": "^3.0",
-                "symfony/framework-bundle": "^4.3|^5.0",
-                "symfony/monolog-bundle": "^3.0"
+                "php": ">=7.4",
+                "psr/log": "^1.0.1",
+                "samj/fractal-bundle": "^4.0",
+                "symfony/framework-bundle": "^5.0"
             },
             "require-dev": {
                 "doctrine/collections": "~1.6",
                 "pagerfanta/pagerfanta": "~2.0",
-                "phpunit/phpunit": "~8.0",
+                "phpunit/phpunit": "~9.0",
                 "somnambulist/domain": "~2.0",
+                "somnambulist/read-models": "~1.0",
                 "symfony/browser-kit": "~5.0",
                 "symfony/messenger": "~5.0",
+                "symfony/monolog-bundle": "~3.5",
                 "symfony/phpunit-bridge": "~5.0",
                 "symfony/stopwatch": "~5.0",
                 "symfony/var-dumper": "~5.0",
@@ -1215,46 +1304,45 @@
                 "json",
                 "symfony"
             ],
-            "time": "2020-08-21T20:35:30+00:00"
+            "time": "2020-08-27T14:29:02+00:00"
         },
         {
             "name": "somnambulist/api-client",
-            "version": "1.8.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/somnambulist-tech/api-client.git",
-                "reference": "0f64b732cdfff178f24ca5b5ba64267dc6429bcd"
+                "reference": "21cbf895aa7acc6100c4ead40effaa110fd4cc33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/somnambulist-tech/api-client/zipball/0f64b732cdfff178f24ca5b5ba64267dc6429bcd",
-                "reference": "0f64b732cdfff178f24ca5b5ba64267dc6429bcd",
+                "url": "https://api.github.com/repos/somnambulist-tech/api-client/zipball/21cbf895aa7acc6100c4ead40effaa110fd4cc33",
+                "reference": "21cbf895aa7acc6100c4ead40effaa110fd4cc33",
                 "shasum": ""
             },
             "require": {
                 "beberlei/assert": "^3.0",
                 "ext-json": "*",
-                "php": ">=7.3",
+                "pagerfanta/pagerfanta": "^2.4",
+                "php": ">=7.4",
                 "psr/log": "^1.0",
-                "somnambulist/collection": "^3.0|^4.0",
-                "symfony/http-client": "^4.0|^5.0",
-                "symfony/routing": "^4.0|^5.0"
+                "somnambulist/attribute-model": "^1.0",
+                "somnambulist/collection": "^4.0",
+                "symfony/event-dispatcher": "^5.0",
+                "symfony/http-client": "^5.0",
+                "symfony/routing": "^5.0"
             },
             "require-dev": {
-                "fzaninotto/faker": "~1.8",
-                "pagerfanta/pagerfanta": "^2.1",
-                "phpunit/phpunit": "~8.2",
-                "somnambulist/domain": "^2.3",
+                "fzaninotto/faker": "~1.9",
+                "phpunit/phpunit": "~9.3",
+                "somnambulist/domain": "^3.0",
                 "symfony/framework-bundle": "^5.0",
                 "symfony/var-dumper": "^5.0"
-            },
-            "suggest": {
-                "pagerfanta/pagerfanta": "For paginating results from API calls"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Somnambulist\\ApiClient\\": "src/"
+                    "Somnambulist\\Components\\ApiClient\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1262,7 +1350,44 @@
                 "MIT"
             ],
             "description": "A library to help ease creating API integrations",
-            "time": "2020-08-29T16:30:05+00:00"
+            "time": "2020-09-13T19:03:09+00:00"
+        },
+        {
+            "name": "somnambulist/attribute-model",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/somnambulist-tech/attribute-model.git",
+                "reference": "47a7dc2beb1f6060fefe8e7b5a49cd64701e1e46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/somnambulist-tech/attribute-model/zipball/47a7dc2beb1f6060fefe8e7b5a49cd64701e1e46",
+                "reference": "47a7dc2beb1f6060fefe8e7b5a49cd64701e1e46",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4",
+                "pragmarx/ia-str": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~9.3",
+                "somnambulist/collection": "^4.0",
+                "somnambulist/domain": "^3.0",
+                "symfony/var-dumper": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Somnambulist\\Components\\AttributeModel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Provides a base model that uses an internal array of attributes with type casting",
+            "time": "2020-09-11T01:59:25+00:00"
         },
         {
             "name": "somnambulist/collection",
@@ -1313,16 +1438,16 @@
         },
         {
             "name": "somnambulist/domain",
-            "version": "2.5.1",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/somnambulist-tech/domain.git",
-                "reference": "5e93ba4e6653ce09836d09e9615de923ebbbfada"
+                "reference": "acc9e6e2eba023cb1bf0954920b5a590b1af47f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/somnambulist-tech/domain/zipball/5e93ba4e6653ce09836d09e9615de923ebbbfada",
-                "reference": "5e93ba4e6653ce09836d09e9615de923ebbbfada",
+                "url": "https://api.github.com/repos/somnambulist-tech/domain/zipball/acc9e6e2eba023cb1bf0954920b5a590b1af47f2",
+                "reference": "acc9e6e2eba023cb1bf0954920b5a590b1af47f2",
                 "shasum": ""
             },
             "require": {
@@ -1331,18 +1456,18 @@
                 "ext-bcmath": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "php": ">=7.2",
-                "pragmarx/ia-str": "^6.0|^7.0",
-                "ramsey/uuid": "^3.8|^4.0",
-                "somnambulist/collection": "^3.0|^4.0"
+                "php": ">=7.4",
+                "pragmarx/ia-str": "^7.0",
+                "ramsey/uuid": "^4.0",
+                "somnambulist/collection": "^4.0"
             },
             "require-dev": {
                 "doctrine/orm": "~2.7",
-                "illuminate/events": "~7.0",
-                "myclabs/php-enum": "~1.7",
+                "ext-pdo": "*",
                 "pagerfanta/pagerfanta": "~2.1",
-                "phpunit/phpunit": "~8.5",
-                "symfony/contracts": "~1.1",
+                "phpspec/prophecy-phpunit": "~2.0",
+                "phpunit/phpunit": "~9.3",
+                "symfony/amqp-messenger": "~5.0",
                 "symfony/event-dispatcher": "~5.0",
                 "symfony/messenger": "~5.0",
                 "symfony/property-access": "~5.0",
@@ -1355,7 +1480,6 @@
                 "giggsey/libphonenumber-for-php": "To validate phone numbers / convert to E164 from a local format",
                 "laravel-doctrine/orm": "A Laravel mapping for Doctrine",
                 "pagerfanta/pagerfanta": "For Pagination of Doctrine results and other data",
-                "propaganistas/laravel-phone": "A Laravel mapping for the Giggsey",
                 "symfony/messenger": "(A)Sync Bus implementation for Symfony needed for query/command/event bus messenger implementations",
                 "symfony/property-access": "Needed for serializing JSON payloads",
                 "symfony/serializer": "Send domain events as JSON strings via messenger"
@@ -1385,7 +1509,7 @@
                 "enumerations",
                 "value objects"
             ],
-            "time": "2020-08-28T20:04:29+00:00"
+            "time": "2020-08-28T21:00:16+00:00"
         },
         {
             "name": "symfony/amqp-messenger",
@@ -1624,16 +1748,16 @@
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v2.1.3",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
-                "reference": "9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009"
+                "reference": "8034ca0b61d4dd967f3698aaa1da2507b631d0cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009",
-                "reference": "9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/8034ca0b61d4dd967f3698aaa1da2507b631d0cb",
+                "reference": "8034ca0b61d4dd967f3698aaa1da2507b631d0cb",
                 "shasum": ""
             },
             "require": {
@@ -1646,7 +1770,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -1696,7 +1820,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T13:23:11+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/config",
@@ -1962,16 +2086,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v2.1.3",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14"
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5e20b83385a77593259c9f8beb2c43cd03b2ac14",
-                "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5fa56b4074d1ae755beb55617ddafe6f5d78f665",
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665",
                 "shasum": ""
             },
             "require": {
@@ -1980,7 +2104,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -2022,7 +2146,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-06T08:49:21+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/doctrine-messenger",
@@ -2329,16 +2453,16 @@
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v2.1.3",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "f6f613d74cfc5a623fc36294d3451eb7fa5a042b"
+                "reference": "0ba7d54483095a198fa51781bc608d17e84dffa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/f6f613d74cfc5a623fc36294d3451eb7fa5a042b",
-                "reference": "f6f613d74cfc5a623fc36294d3451eb7fa5a042b",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/0ba7d54483095a198fa51781bc608d17e84dffa2",
+                "reference": "0ba7d54483095a198fa51781bc608d17e84dffa2",
                 "shasum": ""
             },
             "require": {
@@ -2351,7 +2475,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -2401,7 +2525,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T13:23:11+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -2931,16 +3055,16 @@
         },
         {
             "name": "symfony/http-client-contracts",
-            "version": "v2.1.3",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client-contracts.git",
-                "reference": "cd88921e9add61f2064c9c6b30de4f589db42962"
+                "reference": "3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/cd88921e9add61f2064c9c6b30de4f589db42962",
-                "reference": "cd88921e9add61f2064c9c6b30de4f589db42962",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
+                "reference": "3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
                 "shasum": ""
             },
             "require": {
@@ -2952,7 +3076,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -3002,7 +3126,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T13:23:11+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -5057,16 +5181,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v2.1.3",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "58c7475e5457c5492c26cc740cc0ad7464be9442"
+                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/58c7475e5457c5492c26cc740cc0ad7464be9442",
-                "reference": "58c7475e5457c5492c26cc740cc0ad7464be9442",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d15da7ba4957ffb8f1747218be9e1a121fd298a1",
+                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1",
                 "shasum": ""
             },
             "require": {
@@ -5079,7 +5203,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -5129,7 +5253,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T13:23:11+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/string",
@@ -5218,16 +5342,16 @@
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v2.1.3",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "616a9773c853097607cf9dd6577d5b143ffdcd63"
+                "reference": "77ce1c3627c9f39643acd9af086631f842c50c4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/616a9773c853097607cf9dd6577d5b143ffdcd63",
-                "reference": "616a9773c853097607cf9dd6577d5b143ffdcd63",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/77ce1c3627c9f39643acd9af086631f842c50c4d",
+                "reference": "77ce1c3627c9f39643acd9af086631f842c50c4d",
                 "shasum": ""
             },
             "require": {
@@ -5239,7 +5363,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "2.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -5289,7 +5413,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-06T13:23:11+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/twig-bridge",
@@ -6588,16 +6712,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.1.6",
+            "version": "9.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "d25b24b1cd14772bde4d75daeb393dc17db9f6e6"
+                "reference": "f98f8466126d83b55b924a94d2244c53c216b8fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d25b24b1cd14772bde4d75daeb393dc17db9f6e6",
-                "reference": "d25b24b1cd14772bde4d75daeb393dc17db9f6e6",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f98f8466126d83b55b924a94d2244c53c216b8fb",
+                "reference": "f98f8466126d83b55b924a94d2244c53c216b8fb",
                 "shasum": ""
             },
             "require": {
@@ -6657,7 +6781,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-31T06:31:46+00:00"
+            "time": "2020-09-07T08:07:10+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -6886,16 +7010,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.3.8",
+            "version": "9.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "93d78d8e2a06393a0d0c1ead6fe9984f1af1f88c"
+                "reference": "919333f2d046a89f9238f15d09f17a8f0baa5cc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/93d78d8e2a06393a0d0c1ead6fe9984f1af1f88c",
-                "reference": "93d78d8e2a06393a0d0c1ead6fe9984f1af1f88c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/919333f2d046a89f9238f15d09f17a8f0baa5cc2",
+                "reference": "919333f2d046a89f9238f15d09f17a8f0baa5cc2",
                 "shasum": ""
             },
             "require": {
@@ -6909,7 +7033,7 @@
                 "myclabs/deep-copy": "^1.10.1",
                 "phar-io/manifest": "^2.0.1",
                 "phar-io/version": "^3.0.2",
-                "php": "^7.3 || ^8.0",
+                "php": ">=7.3",
                 "phpspec/prophecy": "^1.11.1",
                 "phpunit/php-code-coverage": "^9.1.5",
                 "phpunit/php-file-iterator": "^3.0.4",
@@ -6981,7 +7105,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-27T06:30:58+00:00"
+            "time": "2020-09-12T09:34:39+00:00"
         },
         {
             "name": "sebastian/cli-parser",

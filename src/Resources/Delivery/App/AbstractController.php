@@ -4,8 +4,9 @@ namespace App\Resources\Delivery\App;
 
 use IlluminateAgnostic\Str\Support\Str;
 use RuntimeException;
-use Somnambulist\ApiBundle\Services\Request\RequestArgumentHelper;
+use Somnambulist\ApiBundle\Request\RequestArgumentHelper;
 use Somnambulist\Domain\Commands\CommandBus;
+use Somnambulist\Domain\Jobs\JobQueue;
 use Somnambulist\Domain\Queries\QueryBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as BaseController;
 use Symfony\Component\HttpFoundation\ParameterBag;
@@ -36,6 +37,7 @@ abstract class AbstractController extends BaseController
         return array_merge(parent::getSubscribedServices(), [
             RequestArgumentHelper::class,
             CommandBus::class,
+            JobQueue::class,
             QueryBus::class,
         ]);
     }
@@ -59,6 +61,11 @@ abstract class AbstractController extends BaseController
     protected function query(): QueryBus
     {
         return $this->get(QueryBus::class);
+    }
+
+    protected function job(): JobQueue
+    {
+        return $this->get(JobQueue::class);
     }
 
     protected function command(): CommandBus

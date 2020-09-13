@@ -14,10 +14,10 @@ RUN apk --update add ca-certificates \
 WORKDIR /app
 
 # copy the php config / overrides, using zz- so it is loaded last
-COPY src/Resources/docker/test/app/conf.d/php-fpm.conf /etc/php7/php-fpm.conf
-COPY src/Resources/docker/test/app/conf.d/www.conf /etc/php7/php-fpm.d/www.conf
-COPY src/Resources/docker/test/app/conf.d/zz-custom.ini /etc/php7/conf.d/zz-custom.ini
-COPY src/Resources/docker/test/app/docker-entrypoint.sh /docker-entrypoint.sh
+COPY config/docker/prod/app/conf.d/php-fpm.conf /etc/php7/php-fpm.conf
+COPY config/docker/prod/app/conf.d/www.conf /etc/php7/php-fpm.d/www.conf
+COPY config/docker/prod/app/conf.d/zz-custom.ini /etc/php7/conf.d/zz-custom.ini
+COPY config/docker/prod/app/docker-entrypoint.sh /docker-entrypoint.sh
 
 COPY composer.* ./
 COPY .env* ./

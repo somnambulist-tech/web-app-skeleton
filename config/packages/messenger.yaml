@@ -17,11 +17,37 @@ framework:
                 middleware:
                     - validation
 
+#            event.bus:
+#                middleware:
+#                    - validation
+
+            job.queue:
+                middleware:
+                    - validation
+
         transports:
             # https://symfony.com/doc/current/messenger.html#transport-configuration
             sync: 'sync://'
+            job_queue:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%/job_queue'
+                options:
+                    exchange:
+                        name: job_queue
+                        type: direct
+                        durable: true
+
+#            domain_events:
+#                dsn: '%env(MESSENGER_TRANSPORT_DSN)%/domain_events'
+#                serializer: somnambulist.domain.event_serializer
+#                options:
+#                    exchange:
+#                        name: domain_events
+#                        type: fanout
+#                        durable: true
 
         routing:
             # Route your messages to the transports
             Somnambulist\Domain\Commands\AbstractCommand: sync
+#            Somnambulist\Domain\Events\AbstractEvent: domain_events
             Somnambulist\Domain\Queries\AbstractQuery: sync
+            Somnambulist\Domain\Jobs\AbstractJob: job_queue

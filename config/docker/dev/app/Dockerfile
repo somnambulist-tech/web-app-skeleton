@@ -16,13 +16,13 @@ RUN apk --update add ca-certificates \
 WORKDIR /app
 
 # copy the php config / overrides, using zz- so it is loaded last
-COPY src/Resources/docker/dev/app/conf.d/php-fpm.conf /etc/php7/php-fpm.conf
-COPY src/Resources/docker/dev/app/conf.d/www.conf /etc/php7/php-fpm.d/www.conf
-COPY src/Resources/docker/dev/app/conf.d/zz-custom.ini /etc/php7/conf.d/zz-custom.ini
-COPY src/Resources/docker/dev/app/docker-entrypoint.sh /docker-entrypoint.sh
+COPY config/docker/dev/app/conf.d/php-fpm.conf /etc/php7/php-fpm.conf
+COPY config/docker/dev/app/conf.d/www.conf /etc/php7/php-fpm.d/www.conf
+COPY config/docker/dev/app/conf.d/zz-custom.ini /etc/php7/conf.d/zz-custom.ini
+COPY config/docker/dev/app/docker-entrypoint.sh /docker-entrypoint.sh
 
 # dump xdebug into tmp, docker-entrypoint will enable if env var set
-COPY src/Resources/docker/dev/app/conf.d/xdebug.ini /tmp/xdebug.ini
+COPY config/docker/dev/app/conf.d/xdebug.ini /tmp/xdebug.ini
 
 COPY composer.* ./
 COPY .env* ./
