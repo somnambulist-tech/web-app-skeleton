@@ -18,10 +18,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class SecurityUser implements UserInterface, EquatableInterface
 {
 
-    /**
-     * @var object
-     */
-    private $user;
+    private object $user;
 
     private function __construct(object $user)
     {
@@ -40,11 +37,6 @@ class SecurityUser implements UserInterface, EquatableInterface
         return $ref->newInstanceWithoutConstructor();
     }
 
-    /**
-     * @param UserInterface $user
-     *
-     * @return bool
-     */
     public function isEqualTo(UserInterface $user)
     {
         if (!$user instanceof SecurityUser) {
