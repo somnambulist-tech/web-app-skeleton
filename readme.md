@@ -26,9 +26,12 @@ Assorted readme files are included for different parts of the service setup:
 See [Data Service](https://github.com/somnambulist-tech/data-service-skeleton) for the main infrastructure
 services and data stores.
 
+If you are working with micro services then be sure to check out: [Project Manager](https://github.com/somnambulist-tech/project-manager)
+a CLI toolkit that makes working with multiple services a little bit easier.
+
 **Note:** this project requires configuring and setting up for you environment. It will not run out
-of the box. For frontend assets, no build chain has been configured. You will need to setup node / yarn
-and the other tools you need.
+of the box. For frontend assets, no build chain has been configured. You will need to set up
+node / yarn and the other tools you need.
 
 ## Getting Started
 
@@ -41,6 +44,9 @@ Customise the base files as you see fit; change names, (especially the service n
 to suite your needs. Then: `docker-compose up -d` to start the docker environment in dev mode.
 Be sure to read [Service Discovery](readme-service-discovery.md) to understand some of how the docker
 environment is setup.
+
+If using `Project Manager` with the default templates: `spm new:service <service_name> app` or without
+the service name/template to use the wizard.
 
 ### Recommended First Steps
 
@@ -62,7 +68,7 @@ The following docker services are pre-configured for development:
 
  * Redis Cache
  * Redis Sessions
- * PHP-FPM 7.4
+ * PHP-FPM 8.0
  * nginx
 
 Test config includes base services to run the environment, however API calls will need mocking
@@ -91,7 +97,7 @@ See [data service](https://github.com/somnambulist-tech/data-service-skeleton) f
 ## Suggested Implementation Approach
 
 This project works best as a client / customer facing web application that consumes the API services
-developed via the [micro service skeleton](https://github.com/somnambulist-tech/micro-service-skeleton) project.
+developed via the [micro service skeleton](https://github.com/somnambulist-tech/web-api-skeleton) project.
 
 Depending on the type of site you are creating, the best approach is to group related functionality into
 their own namespaces. This way you copy the default folder layout to `<name>` and have multiple sets

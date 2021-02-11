@@ -9,4 +9,4 @@ cd /app
 
 sleep 2
 
-/usr/sbin/php-fpm7 --nodaemonize
+/usr/sbin/php-fpm8 --nodaemonize

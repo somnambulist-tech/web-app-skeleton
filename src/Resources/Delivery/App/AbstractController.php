@@ -4,10 +4,10 @@ namespace App\Resources\Delivery\App;
 
 use IlluminateAgnostic\Str\Support\Str;
 use RuntimeException;
-use Somnambulist\ApiBundle\Request\RequestArgumentHelper;
-use Somnambulist\Domain\Commands\CommandBus;
-use Somnambulist\Domain\Jobs\JobQueue;
-use Somnambulist\Domain\Queries\QueryBus;
+use Somnambulist\Bundles\ApiBundle\Request\RequestArgumentHelper;
+use Somnambulist\Components\Domain\Commands\CommandBus;
+use Somnambulist\Components\Domain\Jobs\JobQueue;
+use Somnambulist\Components\Domain\Queries\QueryBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as BaseController;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\RedirectResponse;

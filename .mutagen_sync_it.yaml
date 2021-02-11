@@ -44,15 +44,15 @@ mutagen:
                 - "tests/recordings/"
 
         app_test_recordings:
-            source:     "${PROJECT_DIR}/tests/recordings"
-            target:     "docker://{docker:name=${APP_SERVICE_APP}:name}/app/tests/recordings"
+            source: "${PROJECT_DIR}/tests/recordings"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/tests/recordings"
             use_common: false
             options:
                 default-directory-mode: '0755'
-                default-file-mode:      '0644'
-                sync-mode:              two-way-safe
-                ignore-vcs:             ~
-                symlink-mode:           ignore
+                default-file-mode: '0644'
+                sync-mode: two-way-safe
+                ignore-vcs: ~
+                symlink-mode: ignore
             ignore:
                 - ".DS_Store"
                 - "._*"
@@ -61,30 +61,30 @@ mutagen:
                 - ".env.*.local"
 
         app_vendor_files:
-            source:     "${PROJECT_DIR}/vendor"
-            target:     "docker://{docker:name=${APP_SERVICE_APP}:name}/app/vendor"
+            source: "${PROJECT_DIR}/vendor"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/vendor"
             use_common: false
             options:
                 default-directory-mode: '0755'
-                default-file-mode:      '0644'
-                sync-mode:              one-way-replica
-                ignore-vcs:             ~
-                symlink-mode:           ignore
+                default-file-mode: '0644'
+                sync-mode: one-way-replica
+                ignore-vcs: ~
+                symlink-mode: ignore
             ignore:
                 - ".DS_Store"
                 - "._*"
                 - ".idea/"
 
         composer_json:
-            source:     "${PROJECT_DIR}/composer.json"
-            target:     "docker://{docker:name=${APP_SERVICE_APP}:name}/app/composer.json"
+            source: "${PROJECT_DIR}/composer.json"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/composer.json"
             use_common: false
             options:
                 sync-mode: one-way-replica
 
         composer_lock:
-            source:     "${PROJECT_DIR}/composer.lock"
-            target:     "docker://{docker:name=${APP_SERVICE_APP}:name}/app/composer.lock"
+            source: "${PROJECT_DIR}/composer.lock"
+            target: "docker://{docker:name=${APP_SERVICE_APP}:name}/app/composer.lock"
             use_common: false
             options:
                 sync-mode: one-way-replica

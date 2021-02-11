@@ -2,7 +2,7 @@
 
 namespace App\Component\Delivery\App\Controllers;
 
-use Somnambulist\ApiBundle\Controllers\ApiController;
+use App\Resources\Delivery\App\AbstractController;
 
 /**
  * Class IndexController
@@ -10,7 +10,7 @@ use Somnambulist\ApiBundle\Controllers\ApiController;
  * @package    App\Component\Delivery\App
  * @subpackage App\Component\Delivery\App\Controllers\IndexController
  */
-class IndexController extends ApiController
+class IndexController extends AbstractController
 {
 
     public function __invoke()

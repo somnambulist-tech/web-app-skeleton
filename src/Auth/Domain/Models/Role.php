@@ -2,7 +2,7 @@
 
 namespace App\Auth\Domain\Models;
 
-use Somnambulist\Domain\Entities\AbstractEnumeration;
+use Somnambulist\Components\Domain\Entities\AbstractEnumeration;
 
 /**
  * Class Constants

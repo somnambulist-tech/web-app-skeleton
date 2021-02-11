@@ -22,14 +22,14 @@ class SecurityUserProvider implements UserProviderInterface
      *
      * @var object
      */
-    private $users;
+    private object $users;
 
     /**
      * @param string $username
      *
      * @return UserInterface
      */
-    public function loadUserByUsername($username)
+    public function loadUserByUsername(string $username)
     {
         if (null === $user = $this->users->findOneBy(['email' => $username])) {
             throw new UsernameNotFoundException(sprintf('Username "%s" does not exist', $username));
@@ -57,7 +57,7 @@ class SecurityUserProvider implements UserProviderInterface
      *
      * @return bool
      */
-    public function supportsClass($class)
+    public function supportsClass(string $class)
     {
         return SecurityUser::class === $class;
     }

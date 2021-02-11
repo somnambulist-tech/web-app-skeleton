@@ -3,11 +3,13 @@
 namespace App;
 
 use IlluminateAgnostic\Str\Support\Str;
+use InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use function get_class;
 use function get_parent_class;
 use function php_sapi_name;
 use function preg_match;
@@ -33,12 +35,12 @@ class Kernel extends BaseKernel
 
     protected function getContainerClass()
     {
-        $class = \get_class($this);
+        $class = get_class($this);
         $class = 'c' === $class[0] && 0 === strpos($class, "class@anonymous\0") ? get_parent_class($class).str_replace('.', '_', ContainerBuilder::hash($class)) : $class;
         $class = str_replace('\\', '_', $class).Str::studly(php_sapi_name()).ucfirst($this->environment).($this->debug ? 'Debug' : '').'Container';
 
         if (!preg_match('/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/', $class)) {
-            throw new \InvalidArgumentException(sprintf('The environment "%s" contains invalid characters, it can only contain characters allowed in PHP class names.', $this->environment));
+            throw new InvalidArgumentException(sprintf('The environment "%s" contains invalid characters, it can only contain characters allowed in PHP class names.', $this->environment));
         }
 
         return $class;

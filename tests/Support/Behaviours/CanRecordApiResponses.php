@@ -2,8 +2,8 @@
 
 namespace App\Tests\Support\Behaviours;
 
-use Somnambulist\ApiClient\Client\Decorators\RequestTracker;
-use Somnambulist\ApiClient\Client\Decorators\ResponseStore;
+use Somnambulist\Components\ApiClient\Client\RequestTracker;
+use Somnambulist\Components\ApiClient\Client\ResponseStore;
 use function dirname;
 use function str_replace;
 

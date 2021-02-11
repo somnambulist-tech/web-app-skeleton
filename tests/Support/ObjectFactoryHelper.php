@@ -13,29 +13,18 @@ use function array_key_exists;
 /**
  * Class ObjectFactoryHelper
  *
- * @package App\Tests\Support
+ * @package    App\Tests\Support
  * @subpackage App\Tests\Support\ObjectFactoryHelper
  *
- * @property-read Uuid $uuid
+ * @property-read Uuid      $uuid
+ * @property-read Generator $faker
  */
 class ObjectFactoryHelper
 {
 
-    /**
-     * @var array
-     */
-    private $factories;
+    private array     $factories;
+    private Generator $faker;
 
-    /**
-     * @var Generator
-     */
-    private $faker;
-
-    /**
-     * Constructor
-     *
-     * @param string $locale To initialise faker with
-     */
     public function __construct(string $locale = Factory::DEFAULT_LOCALE)
     {
         $this->faker     = Factory::create($locale);
@@ -63,7 +52,7 @@ class ObjectFactoryHelper
 
     /**
      * @return Generator
-     * @see https://github.com/fzaninotto/Faker#formatters
+     * @see https://fakerphp.github.io/formatters/
      */
     public function faker(): Generator
     {
