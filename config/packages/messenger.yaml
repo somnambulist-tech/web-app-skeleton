@@ -47,7 +47,7 @@ framework:
 
         routing:
             # Route your messages to the transports
-            Somnambulist\Domain\Commands\AbstractCommand: sync
+            Somnambulist\Components\Domain\Commands\AbstractCommand: sync
 #            Somnambulist\Domain\Events\AbstractEvent: domain_events
-            Somnambulist\Domain\Queries\AbstractQuery: sync
-            Somnambulist\Domain\Jobs\AbstractJob: job_queue
+            Somnambulist\Components\Domain\Queries\AbstractQuery: sync
+            Somnambulist\Components\Domain\Jobs\AbstractJob: job_queue
