@@ -14,6 +14,9 @@ use function str_replace;
  * add this trait and setup a decorator around the ApiClient service, and then API calls
  * can be recorded to files for later playback in tests.
  *
+ * Be sure to wrap the HTTP Client instance in the recordable client decorator. See:
+ * https://github.com/somnambulist-tech/api-client/blob/master/docs/recording.md
+ *
  * @package    App\Tests\Support\Behaviours
  * @subpackage App\Tests\Support\Behaviours\CanRecordApiResponses
  */
