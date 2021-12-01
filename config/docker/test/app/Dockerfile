@@ -7,12 +7,13 @@ RUN apk --update add ca-certificates \
     && apk upgrade \
     && apk --no-cache add -U \
     php8-gd \
-    && wget https://mirror.reenigne.net/alpine/edge/community/x86_64/php8-pecl-amqp-1.11.0_rc1-r0.apk \
-    && apk add --allow-untrusted php8-pecl-amqp-1.11.0_rc1-r0.apk \
+    php8-pecl-amqp \
     && rm -rf /var/cache/apk/* /tmp/*
 
 # app will be mounted here, so set this as our working directory
 WORKDIR /app
+
+RUN composer selfupdate
 
 # copy the php config / overrides, using zz- so it is loaded last
 COPY config/docker/test/app/conf.d/php-fpm.conf /etc/php8/php-fpm.conf
