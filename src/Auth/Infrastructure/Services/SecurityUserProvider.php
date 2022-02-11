@@ -16,7 +16,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
  */
 class SecurityUserProvider implements UserProviderInterface
 {
-
     /**
      * Some locator that can look up Users by username
      *
@@ -29,7 +28,7 @@ class SecurityUserProvider implements UserProviderInterface
      *
      * @return UserInterface
      */
-    public function loadUserByUsername(string $username)
+    public function loadUserByIdentifier(string $username): UserInterface
     {
         if (null === $user = $this->users->findOneBy(['email' => $username])) {
             throw new UsernameNotFoundException(sprintf('Username "%s" does not exist', $username));
@@ -43,13 +42,13 @@ class SecurityUserProvider implements UserProviderInterface
      *
      * @return UserInterface
      */
-    public function refreshUser(UserInterface $user)
+    public function refreshUser(UserInterface $user): UserInterface
     {
         if (!$user instanceof SecurityUser) {
             throw new UnsupportedUserException(sprintf('"%s" is not a supported User type', get_class($user)));
         }
 
-        return $this->loadUserByUsername($user->getUsername());
+        return $this->loadUserByIdentifier($user->getUserIdentifier());
     }
 
     /**
@@ -57,7 +56,7 @@ class SecurityUserProvider implements UserProviderInterface
      *
      * @return bool
      */
-    public function supportsClass(string $class)
+    public function supportsClass(string $class): bool
     {
         return SecurityUser::class === $class;
     }

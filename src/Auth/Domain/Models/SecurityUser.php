@@ -17,7 +17,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class SecurityUser implements UserInterface, EquatableInterface
 {
-
     private object $user;
 
     private function __construct(object $user)
@@ -37,7 +36,7 @@ class SecurityUser implements UserInterface, EquatableInterface
         return $ref->newInstanceWithoutConstructor();
     }
 
-    public function isEqualTo(UserInterface $user)
+    public function isEqualTo(UserInterface $user): bool
     {
         if (!$user instanceof SecurityUser) {
             return false;
@@ -47,29 +46,29 @@ class SecurityUser implements UserInterface, EquatableInterface
             return false;
         }
 
-        if ((string)$this->getUsername() !== (string)$user->getUsername()) {
+        if ((string)$this->getUserIdentifier() !== (string)$user->getUserIdentifier()) {
             return false;
         }
 
         return true;
     }
 
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->user->password();
     }
 
-    public function getSalt()
-    {
-        return null;
-    }
-
-    public function getUsername()
+    public function getUserIdentifier(): string
     {
         return (string)$this->user->email();
     }
 
-    public function getRoles()
+    public function getUsername(): string
+    {
+        return (string)$this->user->email();
+    }
+
+    public function getRoles(): array
     {
         return [Role::USER];
     }

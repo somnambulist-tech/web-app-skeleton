@@ -12,8 +12,6 @@ use Somnambulist\Components\Domain\Entities\AbstractEnumeration;
  */
 final class Role extends AbstractEnumeration
 {
-
     const USER            = 'user';
     const CAN_SWITCH_USER = 'switch_user';
-
 }

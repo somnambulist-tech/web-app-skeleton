@@ -31,8 +31,7 @@ use function sprintf;
  */
 abstract class AbstractController extends BaseController
 {
-
-    public static function getSubscribedServices()
+    public static function getSubscribedServices(): array
     {
         return array_merge(parent::getSubscribedServices(), [
             RequestArgumentHelper::class,
@@ -55,22 +54,22 @@ abstract class AbstractController extends BaseController
 
     protected function requestArgumentHelper(): RequestArgumentHelper
     {
-        return $this->get(RequestArgumentHelper::class);
+        return $this->container->get(RequestArgumentHelper::class);
     }
 
     protected function query(): QueryBus
     {
-        return $this->get(QueryBus::class);
+        return $this->container->get(QueryBus::class);
     }
 
     protected function job(): JobQueue
     {
-        return $this->get(JobQueue::class);
+        return $this->container->get(JobQueue::class);
     }
 
     protected function command(): CommandBus
     {
-        return $this->get(CommandBus::class);
+        return $this->container->get(CommandBus::class);
     }
 
     public function __call($name, $arguments)

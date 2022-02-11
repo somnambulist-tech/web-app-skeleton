@@ -1,5 +1,5 @@
 security:
-    encoders:
+    password_hashers:
         App\Auth\Domain\Models\SecurityUser:
             algorithm: bcrypt
             cost: 14
@@ -14,10 +14,9 @@ security:
             security: false
 
         main:
-            anonymous: ~
             user_checker: App\Auth\Infrastructure\Services\SecurityUserChecker
             form_login:
-                csrf_token_generator: security.csrf.token_manager
+                enable_csrf: true
                 login_path: auth.login
                 check_path: auth.login
             logout:
@@ -26,7 +25,7 @@ security:
             switch_user: { role: ROLE_SWITCH_USER }
 
     access_control:
-        - { path: ^/auth/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/auth/lost_password, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/auth/reset_password/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/auth/login, roles: ACCESS_PUBLIC }
+        - { path: ^/auth/lost_password, roles: ACCESS_PUBLIC }
+        - { path: ^/auth/reset_password/*, roles: ACCESS_PUBLIC }
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

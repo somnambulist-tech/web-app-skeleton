@@ -1,3 +1,4 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: '%env(APP_SECRET)%'
     csrf_protection: true
@@ -12,6 +13,7 @@ framework:
         cookie_secure: true
         cookie_samesite: strict
         sid_bits_per_character: 5
+        storage_factory_id: session.storage.factory.native
         sid_length: 48
         gc_maxlifetime: 14400
 
@@ -19,3 +21,9 @@ framework:
     #fragments: true
     php_errors:
         log: true
+
+when@test:
+    framework:
+        test: true
+        session:
+            storage_factory_id: session.storage.factory.mock_file

@@ -14,7 +14,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class SecurityUserChecker implements UserCheckerInterface
 {
-
     public function checkPreAuth(UserInterface $user)
     {
         if (!$user instanceof SecurityUser) {
