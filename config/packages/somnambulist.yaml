@@ -4,11 +4,6 @@ somnambulist_api:
             Assert\InvalidArgumentException: Somnambulist\Bundles\ApiBundle\Services\Converters\AssertionExceptionConverter
             Assert\LazyAssertionException: Somnambulist\Bundles\ApiBundle\Services\Converters\LazyAssertionExceptionConverter
             Symfony\Component\Messenger\Exception\HandlerFailedException: Somnambulist\Bundles\ApiBundle\Services\Converters\HandlerFailedExceptionConverter
-    request_handler:
-        per_page: 20
-        max_per_page: 100
-        limit: 100
-        request_id_header: 'X-Request-Id'
     subscribers:
         exception_to_json: false
         json_to_post: true
