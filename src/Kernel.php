@@ -17,12 +17,6 @@ use function sprintf;
 use function str_replace;
 use function ucfirst;
 
-/**
- * Class Kernel
- *
- * @package App
- * @subpackage App\Kernel
- */
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;

@@ -6,12 +6,6 @@ use App\Resources\Delivery\App\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-/**
- * Class LoginController
- *
- * @package    App\Auth\Delivery\App\Controllers
- * @subpackage App\Auth\Delivery\App\Controllers\LoginController
- */
 class LoginController extends AbstractController
 {
 

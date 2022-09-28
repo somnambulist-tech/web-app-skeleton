@@ -3,31 +3,14 @@
 namespace App\Resources\Delivery\App;
 
 use IlluminateAgnostic\Str\Support\Str;
-use RuntimeException;
 use Somnambulist\Components\Commands\CommandBus;
 use Somnambulist\Components\Jobs\JobQueue;
 use Somnambulist\Components\Queries\QueryBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as BaseController;
-use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use function array_merge;
-use function in_array;
-use function sprintf;
 
-/**
- * Class AbstractController
- *
- * @package    App\Resources\Delivery\App
- * @subpackage App\Resources\Delivery\App\AbstractController
- *
- * @method array orderBy(Request $request, string $default = null)
- * @method int page(Request $request, int $default = 1)
- * @method int perPage(Request $request, int $default = null, int $max = null)
- * @method int limit(Request $request, int $default = null, int $max = null)
- * @method int offset(Request $request, int $limit = null)
- * @method mixed nullOrValue(ParameterBag $request, array $fields, string $class = null)
- */
 abstract class AbstractController extends BaseController
 {
     public static function getSubscribedServices(): array
@@ -63,14 +46,5 @@ abstract class AbstractController extends BaseController
     protected function command(): CommandBus
     {
         return $this->container->get(CommandBus::class);
-    }
-
-    public function __call($name, $arguments)
-    {
-        if (in_array($name, ['orderBy', 'page', 'perPage', 'limit', 'offset', 'nullOrValue'])) {
-            return $this->requestArgumentHelper()->{$name}(...$arguments);
-        }
-
-        throw new RuntimeException(sprintf('Method "%s" not found on "%s"', $name, static::class));
     }
 }

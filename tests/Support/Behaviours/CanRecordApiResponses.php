@@ -8,7 +8,7 @@ use function dirname;
 use function str_replace;
 
 /**
- * Trait CanRecordApiResponses
+ * Recording API Responses
  *
  * If using the somnambulist/api-client and Symfony HTTPClient for making Api requests,
  * add this trait and setup a decorator around the ApiClient service, and then API calls
@@ -16,13 +16,9 @@ use function str_replace;
  *
  * Be sure to wrap the HTTP Client instance in the recordable client decorator. See:
  * https://github.com/somnambulist-tech/api-client/blob/master/docs/recording.md
- *
- * @package    App\Tests\Support\Behaviours
- * @subpackage App\Tests\Support\Behaviours\CanRecordApiResponses
  */
 trait CanRecordApiResponses
 {
-
     protected function setUpTests(): void
     {
         $this->setRecordingStore();

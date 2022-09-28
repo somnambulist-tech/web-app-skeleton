@@ -4,12 +4,6 @@ namespace App\Auth\Domain\Models;
 
 use Somnambulist\Components\Domain\Entities\AbstractEnumeration;
 
-/**
- * Class Constants
- *
- * @package    App\Auth\Domain\Models
- * @subpackage App\Auth\Domain\Models\Constants
- */
 final class Role extends AbstractEnumeration
 {
     const USER            = 'user';

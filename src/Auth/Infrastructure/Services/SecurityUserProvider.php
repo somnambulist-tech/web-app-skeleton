@@ -3,45 +3,27 @@
 namespace App\Auth\Infrastructure\Services;
 
 use App\Auth\Domain\Models\SecurityUser;
+use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-/**
- * Class SecurityUserProvider
- *
- * @package    App\Auth\Infrastructure\Services
- * @subpackage App\Auth\Infrastructure\Services\SecurityUserProvider
- */
 class SecurityUserProvider implements UserProviderInterface
 {
     /**
      * Some locator that can look up Users by username
-     *
-     * @var object
      */
     private object $users;
 
-    /**
-     * @param string $username
-     *
-     * @return UserInterface
-     */
     public function loadUserByIdentifier(string $username): UserInterface
     {
         if (null === $user = $this->users->findOneBy(['email' => $username])) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist', $username));
+            throw new BadCredentialsException();
         }
         
         return SecurityUser::create($user);
     }
 
-    /**
-     * @param UserInterface $user
-     *
-     * @return UserInterface
-     */
     public function refreshUser(UserInterface $user): UserInterface
     {
         if (!$user instanceof SecurityUser) {
@@ -51,11 +33,6 @@ class SecurityUserProvider implements UserProviderInterface
         return $this->loadUserByIdentifier($user->getUserIdentifier());
     }
 
-    /**
-     * @param string $class
-     *
-     * @return bool
-     */
     public function supportsClass(string $class): bool
     {
         return SecurityUser::class === $class;

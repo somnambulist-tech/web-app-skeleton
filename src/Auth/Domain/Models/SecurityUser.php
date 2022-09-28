@@ -7,13 +7,8 @@ use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class SecurityUser
- *
  * Wraps a User object to keep the Symfony interfaces out of the User object.
  * Expose other methods by wrapping them and passing through.
- *
- * @package    App\Auth\Domain\Models
- * @subpackage App\Auth\Domain\Models\SecurityUser
  */
 class SecurityUser implements UserInterface, EquatableInterface
 {

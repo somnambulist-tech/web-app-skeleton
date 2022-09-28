@@ -6,12 +6,6 @@ use App\Auth\Domain\Models\SecurityUser;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-/**
- * Class SecurityUserChecker
- *
- * @package    App\Auth\Infrastructure\Services
- * @subpackage App\Auth\Infrastructure\Services\SecurityUserChecker
- */
 class SecurityUserChecker implements UserCheckerInterface
 {
     public function checkPreAuth(UserInterface $user)
