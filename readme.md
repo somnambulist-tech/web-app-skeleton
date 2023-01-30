@@ -1,6 +1,6 @@
 # Symfony Micro Service Starter Project
 
-This is a skeleton project that pre-configures a Symfony 5+ project for use as a micro service.
+This is a skeleton project that pre-configures a Symfony 5+ project for use as a micro-service.
 This project is intended to be used in conjunction with: [Data Service](https://github.com/somnambulist-tech/data-service-skeleton)
 
 The setup includes:
@@ -26,8 +26,8 @@ Assorted readme files are included for different parts of the service setup:
 See [Data Service](https://github.com/somnambulist-tech/data-service-skeleton) for the main infrastructure
 services and data stores.
 
-If you are working with micro services then be sure to check out: [Project Manager](https://github.com/somnambulist-tech/project-manager)
-a CLI toolkit that makes working with multiple services a little bit easier.
+If you are working with micro-services then be sure to check out: [Project Manager](https://github.com/somnambulist-tech/project-manager)
+a CLI toolkit that makes working with multiple services a little easier.
 
 **Note:** this project requires configuring and setting up for you environment. It will not run out
 of the box. For frontend assets, no build chain has been configured. You will need to set up
@@ -68,7 +68,7 @@ The following docker services are pre-configured for development:
 
  * Redis Cache
  * Redis Sessions
- * PHP-FPM 8.0
+ * PHP-FPM 8.1
  * nginx
 
 Test config includes base services to run the environment, however API calls will need mocking

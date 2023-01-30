@@ -88,3 +88,17 @@ services:
     App\Component\Application\QueryHandlers\:
         resource: '../src/Component/Application/QueryHandlers/*'
         tags: [{ name: messenger.message_handler, bus: query.bus }]
+
+when@test:
+    services:
+        _defaults:
+            public: true
+        #
+        # Example overridden SF ApiClient to record API responses
+        #
+        #    app.some_service.recording_api_client:
+        #        decorates: app.some_service.api_client
+        #        class: Somnambulist\ApiClient\Client\Decorators\RecordResponseDecorator
+        #        arguments:
+        #            $client: '@app.some_service.recording_api_client.inner'
+        #            $mode: '%env(APP_TEST_API_PLAYBACK_MODE)%'

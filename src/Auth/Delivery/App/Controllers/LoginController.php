@@ -8,7 +8,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
-
     public function __invoke(Request $request, AuthenticationUtils $utils)
     {
         return $this->render('auth/login.html.twig', [

@@ -2,7 +2,7 @@
 
 namespace App\Auth\Domain\Models;
 
-use Somnambulist\Components\Domain\Entities\AbstractEnumeration;
+use Somnambulist\Components\Models\AbstractEnumeration;
 
 final class Role extends AbstractEnumeration
 {
