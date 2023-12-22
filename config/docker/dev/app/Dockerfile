@@ -1,5 +1,5 @@
 
-FROM somnambulist/php-fpm:8.1-latest
+FROM somnambulist/php-fpm:8.3-latest
 ENV TERM=xterm-256color
 ENV XDEBUG=${XDEBUG:-false}
 
@@ -7,9 +7,9 @@ RUN apk --update add ca-certificates \
     && apk update \
     && apk upgrade \
     && apk --no-cache add -U \
-    php81-pecl-xdebug \
-    php81-gd \
-    php81-pecl-amqp \
+    php83-pecl-xdebug \
+    php83-gd \
+    php83-pecl-amqp \
     && rm -rf /var/cache/apk/* /tmp/*
 
 # app will be mounted here, so set this as our working directory
@@ -18,9 +18,9 @@ WORKDIR /app
 RUN composer selfupdate
 
 # copy the php config / overrides, using zz- so it is loaded last
-COPY config/docker/dev/app/conf.d/php-fpm.conf /etc/php81/php-fpm.conf
-COPY config/docker/dev/app/conf.d/www.conf /etc/php81/php-fpm.d/www.conf
-COPY config/docker/dev/app/conf.d/zz-custom.ini /etc/php81/conf.d/zz-custom.ini
+COPY config/docker/dev/app/conf.d/php-fpm.conf /etc/php83/php-fpm.conf
+COPY config/docker/dev/app/conf.d/www.conf /etc/php83/php-fpm.d/www.conf
+COPY config/docker/dev/app/conf.d/zz-custom.ini /etc/php83/conf.d/zz-custom.ini
 COPY config/docker/dev/app/docker-entrypoint.sh /docker-entrypoint.sh
 
 # dump xdebug into tmp, docker-entrypoint will enable if env var set

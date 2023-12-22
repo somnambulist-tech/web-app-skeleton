@@ -1,6 +1,6 @@
 # Testing
 
-This project has been configured to use PHPUnit 9.X, both via the Symfony bridge and in the
+This project has been configured to use PHPUnit 10.X, both via the Symfony bridge and in the
 composer.json file. If you require an alternative version be sure to update the settings. 
 
 __Note:__ by default xdebug is not installed in the docker containers. If you require code
